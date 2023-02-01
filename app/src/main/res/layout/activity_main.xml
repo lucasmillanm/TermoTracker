@@ -16,4 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="139dp"
+        android:layout_height="138dp"
+        app:srcCompat="@drawable/termotrackerlogo_nobg"
+        tools:layout_editor_absoluteX="290dp"
+        tools:layout_editor_absoluteY="-27dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
