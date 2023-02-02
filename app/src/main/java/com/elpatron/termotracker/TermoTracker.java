@@ -21,7 +21,7 @@ import android.widget.TextView;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class TermoTracker extends AppCompatActivity implements SensorEventListener {
 
     private TextView textDisplayed;
     private SensorManager sensorManager;
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         this.setTextDisplayed(sensorEvent.values[0] + " ℃");
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(MainActivity.this, "notification");
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(TermoTracker.this, "notification");
         if (sensorEvent.values[0] >= 30) {
             this.setColor("#DC583C");
             this.handleNotification(notification, "It’s already more than 30 degrees outside, wear shorts");
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         notification.setContentText(contentText);
         notification.setSmallIcon(R.drawable.ic_launcher_foreground);
         notification.setAutoCancel(true);
-        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(MainActivity.this);
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(TermoTracker.this);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
